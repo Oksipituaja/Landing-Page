@@ -15,9 +15,9 @@
 <body class="bg-slate-50">
 
   <aside>
-    <!-- navbar Start -->
-    <nav class="py-4 px-4 bg-slate-100 w-full flex z-50">
-      <div class="container flex mx-auto justify-between px-2 font-Poppins ">
+    <!-- Navbar Start -->
+    <nav id="navbarr" class="fixed top-0 left-0 right-0 py-4 px-4 bg-sky-400 w-full flex z-50 bg-opacity-80 bg-clip-padding blur-backdrop-filter transition-transform duration-300">
+      <div class="relative container flex mx-auto justify-between px-2 font-Poppins">
         <!-- Logo Start -->
         <div class="space-x-4 items-center text-center justify-center flex">
           <img class="size-20" src="./assets/icon/paws-logo.png" alt="logo">
@@ -39,7 +39,8 @@
       </div>
     </nav>
     <!-- Navbar End -->
-  </aside>
+  </aside>  
+
   <main>
 
     <section id="Home">
@@ -113,7 +114,7 @@
         <div class="p-4 m-4 w-full">
           <!-- column Start -->
           <div class="flex p-6 mx-auto -ml-4 justify-center">
-            <img class="bg-center" src="/assets/img/Benefits.png" alt="img 1">
+            <img class="bg-center" src="./assets/img/Benefits.png" alt="img 1">
           </div>
         </div>
         <a href="#Howtouse"><button
@@ -223,7 +224,7 @@
           <!-- THE PAW ADVISOR Start -->
           <div class="">
             <h2 class="text-3xl font-bold mb-4 font-Poppins">THE PAW <br>ADVISOR</h2>
-            <p>© Copyright 2019 by THEPAWADVISOR.com</p>
+            <p>© Copyright 2019 by thepawadvisor.com</p>
           </div>
           <!-- THE PAW ADVISOR End -->
         </div>
@@ -255,15 +256,46 @@
 
     /* Handle */
     ::-webkit-scrollbar-thumb {
-      background: #888;
+      background:dodgerblue;
       border-radius: 5px;
     }
 
     /* Handle on hover */
     ::-webkit-scrollbar-thumb:hover {
-      background: cyan;
+      background: #60D3F7;
+    }
+
+    /* Blur Backdrop Navbar */
+
+    .backdrop-filter {
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+    }
+
+    .blur-backdrop-filter {
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
     }
   </style>
+  <!-- Navbar Scroll -->
+  <script>
+    let lastScrollTop = 0;
+    const navbar = document.getElementById("navbarr");
+
+    window.addEventListener("scroll", function () {
+      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (currentScroll > lastScrollTop) {
+        // Scroll Down
+        navbar.style.transform = "translateY(-100%)";
+      } else {
+        // Scroll Up
+        navbar.style.transform = "translateY(0)";
+      }
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+    });
+
+  </script>
 </body>
 
 </html>
